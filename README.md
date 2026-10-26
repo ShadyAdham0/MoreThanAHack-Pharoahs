@@ -25,11 +25,11 @@ python -m pip install -r requirements-solution.txt
 # and unpack it under data/tactical/ (BAR-ATH_tactical_atd.txt, _atd.xml,
 # _smart_tagging.xml, _homography.csv)
 
-python solution/run.py --data-dir data --out evaluation/results/<team_name>.csv \
+python solution/run.py --data-dir data --out evaluation/results/Pharoahs.csv \
                        --cache analysis/atd_cache.npz \
                        --diagnostics analysis/real_diag.npz
 
-python evaluation/validate_submission.py evaluation/results/<team_name>.csv
+python evaluation/validate_submission.py evaluation/results/Pharoahs.csv
 python evaluation/run_evaluation.py
 ```
 
@@ -50,6 +50,6 @@ above regenerates it byte-for-byte on the pinned versions.
 
 ## Team
 
-Replace `<team_name>` with the registered team name; the technical document may be submitted as
-`<team_name>.md` or `<team_name>.pdf`. The competition rules require a team of 3–5 members for the
-Innovation Challenge and Final Pitch, and the Phase 1 deadline is **17 November 2026**.
+**Pharoahs.** The technical document is submitted as `Pharoahs.pdf`; the possession file is
+`Pharoahs.csv`. The competition rules require a team of 3–5 members for the Innovation Challenge
+and Final Pitch, and the Phase 1 deadline is **17 November 2026**.
