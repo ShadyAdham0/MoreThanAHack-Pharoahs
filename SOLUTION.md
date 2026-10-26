@@ -24,7 +24,7 @@ data/tactical/BAR-ATH_tactical_homography.csv      22 MB    read, not needed
 ```
 
 It is licensed for the competition only and is **not** committed — `data/` is gitignored. The
-generated submission is `evaluation/results/my_team.csv`:
+generated submission is `evaluation/results/Pharoahs.csv`:
 
 - **346 possessions, mean 13.3 s**
 - `D` on 27.6 % of graded frames; home/away 55.0/45.0 % of live frames
@@ -38,7 +38,7 @@ generated submission is `evaluation/results/my_team.csv`:
 python -m pip install -r requirements-solution.txt    # numpy/pandas pins used for this build
 
 # real pipeline (needs data/tactical/*_atd.txt)
-python solution/run.py --data-dir data --out evaluation/results/my_team.csv \
+python solution/run.py --data-dir data --out evaluation/results/Pharoahs.csv \
                        --cache analysis/atd_cache.npz
 
 # stand-in from the shipped baseline (no match bundle needed)
@@ -46,7 +46,7 @@ python solution/run.py --fallback evaluation/results/baseline_raw.csv \
                        --out evaluation/results/fallback_hmm.csv
 
 # check and score
-python evaluation/validate_submission.py evaluation/results/my_team.csv
+python evaluation/validate_submission.py evaluation/results/Pharoahs.csv
 python evaluation/run_evaluation.py
 ```
 
@@ -126,7 +126,7 @@ work before the short spells stop costing `spellF1`.
 
 ```bash
 # the delivered submission, on the provided bundle
-python solution/run.py --data-dir data --out evaluation/results/my_team.csv \
+python solution/run.py --data-dir data --out evaluation/results/Pharoahs.csv \
                        --cache analysis/atd_cache.npz --diagnostics analysis/real_diag.npz
 
 # formats -> pipeline -> CSV, no match data needed
@@ -165,10 +165,10 @@ requirements-solution.txt
 ## Running it on another match
 
 1. Drop that match's files into `data/tactical/` (and optionally `data/broadcast/`).
-2. `python solution/run.py --data-dir data --out evaluation/results/my_team.csv --diagnostics analysis/real_diag.npz`
+2. `python solution/run.py --data-dir data --out evaluation/results/Pharoahs.csv --diagnostics analysis/real_diag.npz`
 3. Score the public window and inspect per-class F1 — use it to check alignment, not to pick
    variants.
-4. `python evaluation/validate_submission.py evaluation/results/my_team.csv`
+4. `python evaluation/validate_submission.py evaluation/results/Pharoahs.csv`
 
 The constants most worth a second look on a new match are all in `solution/config.py` and are
 marked: `tempo_percentile`, `live_mean_speed_mps`, `still_speed_mps`, the four `dead_*_weight`s,
