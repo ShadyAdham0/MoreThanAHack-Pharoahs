@@ -1,0 +1,9 @@
+# Dependencies for the possession pipeline in solution/.
+#
+# The scorer itself needs only numpy and pandas; this file pins the versions the submission was
+# built and tested with so that a re-run produces the same file. CPython 3.11.9, Windows x64.
+#
+# The code avoids version-specific syntax and also runs on Python 3.8+, but these exact pins are
+# what the technical document's reproduction command was verified against.
+numpy==1.26.4
+pandas==2.1.4
