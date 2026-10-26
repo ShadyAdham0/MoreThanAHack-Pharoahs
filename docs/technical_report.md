@@ -1,5 +1,7 @@
 # Ball possession from automatic tracking — technical report
 
+**Team Pharoahs** · More than a Hack 2027 · Phase 1 technical document
+
 **Task.** One label per tactical-video frame: `H` (home in possession, ball alive), `A` (away in
 possession, ball alive), `D` (dead ball), `X` (no answer / ungraded). 199,319 rows. Ranked by
 `spellF1` over possession spells; `macroF1` is reported and breaks ties.
@@ -177,7 +179,7 @@ On the public five minutes — a correctness check, not a tuning set:
 | submission | macroF1 | spellF1 | poss | mean dur | D F1 |
 |---|---|---|---|---|---|
 | `baseline_smooth125` | 0.5812 | **0.4242** | 16 | 18.5 s | — |
-| **`my_team` (data-driven)** | **0.6658** | 0.4103 | 22 | 12.9 s | 0.445 |
+| **`Pharoahs` (data-driven)** | **0.6658** | 0.4103 | 22 | 12.9 s | 0.445 |
 | `fallback_hmm` | 0.6438 | 0.3429 | 25 | 10.6 s | 0.424 |
 | `baseline_smooth50` | 0.6207 | 0.3256 | 26 | 10.8 s | — |
 
@@ -186,7 +188,7 @@ alive/dead F1 (0.920); its team accuracy on live frames is 0.847. It does **not*
 `smooth125` on this window, which is the repository's documented example of a public-window winner
 that loses the full match. The full-match possession count is the better structural signal:
 346 possessions at 13.3 s is close to the public GT cadence of 17 possessions at 14.2 s, while
-`smooth125` reports 398 possessions over the full match. No constant was selected to maximise the
+`smooth125` reports 430 possessions over the full match. No constant was selected to maximise the
 public score; the tempo percentile came from the stop-start bias in the median, and the dead-ball
 bias is the football base rate.
 
@@ -219,14 +221,14 @@ precision/recall and the distribution of `P(dead)` against player speed.
 pip install -r requirements-solution.txt    # pinned numpy/pandas
 
 # data-driven submission
-python solution/run.py --data-dir data --out evaluation/results/<team>.csv \
+python solution/run.py --data-dir data --out evaluation/results/Pharoahs.csv \
                        --cache analysis/atd_cache.npz
 
 # correctness test without the match bundle
 python tests/synthetic_match.py
 
 # format check and public score
-python evaluation/validate_submission.py evaluation/results/<team>.csv
+python evaluation/validate_submission.py evaluation/results/Pharoahs.csv
 python evaluation/run_evaluation.py
 ```
 

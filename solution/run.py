@@ -1,7 +1,7 @@
 """Command line entry point.
 
     # the real pipeline (needs the gated bundle in ./data)
-    python solution/run.py --data-dir data --out evaluation/results/my_team.csv
+    python solution/run.py --data-dir data --out evaluation/results/Pharoahs.csv
 
     # the stand-in that needs only the shipped baseline output
     python solution/run.py --fallback evaluation/results/baseline_raw.csv \
@@ -9,7 +9,7 @@
 
 Validate the result before submitting:
 
-    python evaluation/validate_submission.py evaluation/results/my_team.csv
+    python evaluation/validate_submission.py evaluation/results/Pharoahs.csv
 """
 
 from __future__ import annotations

@@ -92,13 +92,13 @@ scorer’s forward fill.
 
 ## Public 5-minute result (sanity check only)
 
-`my_team` (data-driven) and `fallback_hmm` vs the published baselines, on the 17-possession public
+`Pharoahs` (data-driven) and `fallback_hmm` vs the published baselines, on the 17-possession public
 window:
 
 | submission | macroF1 | spellF1 | possessions | mean dur | D F1 |
 |---|---|---|---|---|---|
 | `baseline_smooth125` | 0.5812 | **0.4242** | 16 | 18.5 s | — |
-| **`my_team`** | **0.6658** | 0.4103 | 22 | 12.9 s | 0.445 |
+| **`Pharoahs`** | **0.6658** | 0.4103 | 22 | 12.9 s | 0.445 |
 | `fallback_hmm` | 0.6438 | 0.3429 | 25 | 10.6 s | 0.424 |
 | `baseline_smooth50` | 0.6207 | 0.3256 | 26 | 10.8 s | — |
 | `baseline_smooth25` | 0.6200 | 0.2868 | 36 | 7.6 s | — |
@@ -208,7 +208,7 @@ validate or tune the model.
 
 - [ ] `frame,label`, 199,319 rows, frames `0…199318`, labels `H/A/D/X`
 - [ ] `python evaluation/validate_submission.py <file>.csv` → `OK`
-- [ ] file named `<team_name>.csv`; technical document `<team_name>.pdf` or `.md`
+- [ ] file named `Pharoahs.csv`; technical document `Pharoahs.pdf`
 - [ ] public repository contains no `data/` and reproduces the exact CSV with the command above
 - [ ] team has 3–5 members (RULES.md eligibility; fewer than 3 is not eligible for the Innovation
       Challenge and Final Pitch)
