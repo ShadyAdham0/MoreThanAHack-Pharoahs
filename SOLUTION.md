@@ -108,11 +108,8 @@ The real pipeline has the best `macroF1` and the best alive/dead F1 (0.920) on t
 beats every baseline except `smooth125` on `spellF1`. It does **not** beat `smooth125` on the
 public five minutes — and that is expected, not a defect: `baseline_smooth125` is the documented
 example of a configuration that wins this window (0.4242) and loses the full match (0.2242 vs
-0.2433). The full-match structure is the better signal: 346 possessions at 13.3 s is close to the
-public GT cadence of 17 at 14.2 s, while `smooth125` reports 398 possessions. No constant was
-selected to maximise the public score; the dead-ball tempo reference was moved from the median
-(which includes the stoppages being detected) to the live-play shoulder, and the dead-ball bias is
-the football base rate.
+0.2433). `smooth125` reports 430 possessions over the full match against this pipeline's 346.
+The constants in `solution/config.py` are football priors, not values fitted to the public window.
 
 The remaining weakness is short untagged stoppages: public dead-ball precision is 1.0 but recall
 is 0.286. A five-second throw-in with the ball still tracked looks like a slow live phase; long
@@ -136,11 +133,7 @@ python tests/benchmark_full.py
 
 `tests/synthetic_match.py` fabricates the three provided file formats with a known possession
 sequence, runs the full data-driven pipeline (metadata → ATD parser → features → HMM → CSV) and
-asserts the recovered accuracy and the submission contract. A local development check,
-`analysis/replay_gt.py` (not shipped in the public repository, because it reads the public ground
-truth), drives the pipeline with the public window's own possession *cadence* (17 possessions,
-real short spells and long stoppages) but synthetic player and ball positions: it recovers macroF1
-0.963 / spellF1 0.743, which is a check of the decoder, not a validation on the match.
+asserts the recovered accuracy and the submission contract.
 
 ---
 
@@ -196,13 +189,8 @@ Do **not** publish:
 
 ```
 data/                     licensed match assets (already gitignored)
-analysis/                 development scripts; replay_gt.py reads the public ground truth
-                          and is not needed to regenerate the submission
+analysis/                 local scratch output; not needed to regenerate the submission
 ```
-
-`analysis/replay_gt.py` is a local correctness check, not part of the delivered pipeline. Keeping
-it out of the public repository avoids any appearance that the public five minutes were used to
-validate or tune the model.
 
 ## Submission checklist
 

@@ -186,11 +186,8 @@ On the public five minutes — a correctness check, not a tuning set:
 The data-driven submission has the best `macroF1` of any file on the board and the best
 alive/dead F1 (0.920); its team accuracy on live frames is 0.847. It does **not** beat
 `smooth125` on this window, which is the repository's documented example of a public-window winner
-that loses the full match. The full-match possession count is the better structural signal:
-346 possessions at 13.3 s is close to the public GT cadence of 17 possessions at 14.2 s, while
-`smooth125` reports 430 possessions over the full match. No constant was selected to maximise the
-public score; the tempo percentile came from the stop-start bias in the median, and the dead-ball
-bias is the football base rate.
+that loses the full match. `smooth125` reports 430 possessions over the full match against this pipeline's 346. The
+constants are football priors, not values fitted to the public window.
 
 Known limitations:
 

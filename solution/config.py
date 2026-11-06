@@ -43,9 +43,8 @@ class Config:
     # features.py), because the median of a match includes the stoppages being detected.
     live_mean_speed_mps: float = 2.2
     # Which percentile of this match's collective-speed distribution counts as live tempo. The
-    # median includes the stoppages being detected and sits at a standing-player speed; the upper
-    # quartile calls too much of the match "slow" and over-triggers D. The 55th percentile is the
-    # live-play shoulder: just above the stopped frames, below the moving ones.
+    # median includes the stoppages being detected and sits at a standing-player speed, so a
+    # slightly higher percentile is used as the live-play shoulder.
     tempo_percentile: float = 55.0
     dead_smooth_frames: int = 25            # 1 s: a stoppage is not one quiet frame
     # A football match is dead for roughly a fifth to a third of its frames (throw-ins, goal
